@@ -4,7 +4,7 @@ local char = game.Players.LocalPlayer.Character
 
 _G.Move = true
 
-wait(5)
+wait(15)
 
 while _G.Move == true do
 
