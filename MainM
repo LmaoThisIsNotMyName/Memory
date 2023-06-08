@@ -26,5 +26,5 @@ function Bypass_tlp(p)
     end
 
 end
-wait(10)
+wait(18)
 Bypass_tlp(teleport_table.location)
