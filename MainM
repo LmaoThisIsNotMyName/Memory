@@ -1,8 +1,8 @@
 function airwalk()
 
-    local air = Instance/.new("Part", workspace)
+    local air = Instance.new("Part", workspace)
 
-    air.Size = Vector3./new(7, 2, 3)
+    air.Size = Vector3.new(7, 2, 3)
 
     air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3/.new(0, -4, 0)
 
@@ -10,7 +10,7 @@ function airwalk()
 
     air.Anchored = true
 
-    air/.Name = "Airwalk"
+    air.Name = "Airwalk"
 
     for i = 1, math.huge do
 
