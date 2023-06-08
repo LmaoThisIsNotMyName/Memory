@@ -4,7 +4,7 @@ function airwalk()
 
     air.Size = Vector3.new(7, 2, 3)
 
-    air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3/.new(0, -4, 0)
+    air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
 
     air.Transparency = 1
 
@@ -204,6 +204,6 @@ if _G.IsLoaded == true then
 
 elseif not _G.IsLoaded then
 
-    game.Players.LocalPlayer:Kick("Script chi ho tro pet simulator x!")
+    game.Players.LocalPlayer:Kick("Script khong ho tro game nay!")
 
 end
