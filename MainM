@@ -52,7 +52,7 @@ end
 
 function isloaded()
 
-    if stat._G.WhiteScreen == true then
+    if _G.WhiteScreen == true then
 
         game:GetService("RunService"):Set3dRenderingEnabled(false)
 
@@ -60,7 +60,7 @@ function isloaded()
 
     
 
-    if stat._G.HidePlayer == true then
+    if _G.HidePlayer == true then
 
         Bypass_tlp(teleport_table.location)
 
