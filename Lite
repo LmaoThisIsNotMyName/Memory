@@ -1,0 +1,27 @@
+_G.MemoryInput = 3000
+
+spawn(function()
+
+    while true do
+
+        local StatsService = game:GetService("Stats")
+
+        local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
+
+        local MemoryUsage = tonumber(totalMemoryUsage)
+
+        if MemoryUsage > _G.MemoryInput then
+
+            local ts = game:GetService("TeleportService")
+
+            local p = game:GetService("Players").LocalPlayer
+
+            ts:Teleport(game.PlaceId, p)
+
+        end
+
+	    wait(30)
+
+    end
+
+end)
