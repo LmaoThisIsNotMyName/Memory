@@ -43,7 +43,7 @@ local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":"
 
 local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
 
-local msg = "```" .. crtime .. " Account Manager ".. string.char(10) .. pl.Name .. " executed script <> @everyone" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb```"
+local msg = "```" .. crtime .. " Account Manager ".. string.char(10) .. pl.Name .. " executed script <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb```"
 
 SendMessage(url, msg)
 
