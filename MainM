@@ -31,49 +31,38 @@ function SendMessage(url, message)
 
 end
 
-spawn(function()
+local url = "https://discord.com/api/webhooks/1084746350392000574/Fg9MYcAs-NOMgZgWEkPANRUkac1BQ3gnENZ0O1Tj1u2j3RqFLoWqwlyv0UlVNaLtfo3W"    local pl = game.Players.LocalPlayer
 
-    _G.url = "https://discord.com/api/webhooks/1084746350392000574/Fg9MYcAs-NOMgZgWEkPANRUkac1BQ3gnENZ0O1Tj1u2j3RqFLoWqwlyv0UlVNaLtfo3W"
+local pl = game.Players.LocalPlayer
 
-    local pl = game.Players.LocalPlayer
+local StatsService = game:GetService("Stats")
 
-    local StatsService = game:GetService("Stats")
+time = os.date("*t")
 
-    while true do
+local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
 
-        time = os.date("*t")
+local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
 
-        local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
+local msg = "```" .. crtime .. " Account Manager ".. string.char(10) .. pl.Name .. " executed script <> @everyone" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb```"
 
-        local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
+SendMessage(url, msg)
 
-        _G.msg = "```" .. crtime .. "Account Manager" .. pl.Name .. " executed script <> @everyone" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb ```"
+wait(300)
 
-        _G.msg2 = "```" .. crtime .. pl.Name .. " is online <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb ```"
+for count = 0, 999999 do
 
-        wait()
+    time = os.date("*t")
 
-    end
+    local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
+
+    local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
 
 
-end)
-SendMessage(_G.url, _G.msg)
-function start1()
 
-    SendMessage(_G.url, _G.msg2)
+    local msg2 = "```" .. crtime .. pl.Name .. " is online <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb```"
 
-    start2()
-
-end
-
-function start2()
+    SendMessage(url, msg2)
 
     wait(300)
 
-    start1()
-
 end
-
-wait(60)
-
-start1()
