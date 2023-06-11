@@ -55,13 +55,12 @@ spawn(function()
 
     end
 
-    SendMessage(_G.url, msg)
 
 end)
-
+SendMessage(_G.url, _G.msg)
 function start1()
 
-    SendMessage(_G.url, msg2)
+    SendMessage(_G.url, _G.msg2)
 
     start2()
 
