@@ -1,4 +1,4 @@
-_G.MemoryInput = 3000
+_G.MemoryInput = 2500
 
 spawn(function()
 
@@ -73,4 +73,5 @@ local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
 
 local msg = "```" .. crtime .. pl.Name .. " executed script <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. "```"
 
+wait(120)
 SendMessage(url, msg)
