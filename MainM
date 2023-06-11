@@ -33,58 +33,48 @@ end
 
 spawn(function()
 
-    url = "https://discord.com/api/webhooks/1084746350392000574/Fg9MYcAs-NOMgZgWEkPANRUkac1BQ3gnENZ0O1Tj1u2j3RqFLoWqwlyv0UlVNaLtfo3W"
+    _G.url = "https://discord.com/api/webhooks/1084746350392000574/Fg9MYcAs-NOMgZgWEkPANRUkac1BQ3gnENZ0O1Tj1u2j3RqFLoWqwlyv0UlVNaLtfo3W"
 
-    pl = game.Players.LocalPlayer
+    local pl = game.Players.LocalPlayer
 
-    StatsService = game:GetService("Stats")
+    local StatsService = game:GetService("Stats")
 
-    spawn(function()
+    while true do
 
-        while true do
+        time = os.date("*t")
 
-            time = os.date("*t")
+        local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
 
-            crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
+        local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
 
-            totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
+        _G.msg = "```" .. crtime .. "Account Manager" .. pl.Name .. " executed script <> @everyone" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb ```"
 
-            msg = "```" .. crtime .. " Account Manager" .. string.char(10) .. pl.Name .. " executed script <> @everyone" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb ```"
+        _G.msg2 = "```" .. crtime .. pl.Name .. " is online <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb ```"
 
-            msg2 = "```" .. crtime .. pl.Name .. " is online <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb ```"
-
-            wait(1)
-
-        end
-
-    end)
-
-    
-
-    SendMessage(url, msg)
-
-    
-
-    function start1()
-
-        SendMessage(url, msg2)
-
-        start2()
+        wait()
 
     end
 
-    
+    SendMessage(_G.url, msg)
 
-    function start2()
+end)
 
-        wait(300)
+function start1()
 
-        start1()
+    SendMessage(_G.url, msg2)
 
-    wait(60)
+    start2()
+
+end
+
+function start2()
+
+    wait(300)
 
     start1()
 
-    end
+end
 
-end)
+wait(60)
+
+start1()
