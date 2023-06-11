@@ -29,22 +29,56 @@ function SendMessage(url, message)
 
     })
 
-    print(".")
-
 end
 
-local url = "https://discord.com/api/webhooks/1084746350392000574/Fg9MYcAs-NOMgZgWEkPANRUkac1BQ3gnENZ0O1Tj1u2j3RqFLoWqwlyv0UlVNaLtfo3W"
+spawn(function()
 
-local pl = game.Players.LocalPlayer
+    local url = "https://discord.com/api/webhooks/1084746350392000574/Fg9MYcAs-NOMgZgWEkPANRUkac1BQ3gnENZ0O1Tj1u2j3RqFLoWqwlyv0UlVNaLtfo3W"
 
-local StatsService = game:GetService("Stats")
+    local pl = game.Players.LocalPlayer
 
-time = os.date("*t")
+    local StatsService = game:GetService("Stats")
 
-local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
+    while true do
 
-local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
+        time = os.date("*t")
 
-local msg = "```" .. crtime .. pl.Name .. " executed script <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. "```"
+        local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
 
-SendMessage(url, msg)
+        local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
+
+        local msg = "```" .. crtime .. " Account Manager" .. string.char(10) .. pl.Name .. " executed script <> @everyone" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb ```"
+
+        local msg2 = "```" .. crtime .. pl.Name .. " is online <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb ```"
+
+        wait(1)
+
+    end
+
+    SendMessage(url, msg)
+
+    
+
+    function start1()
+
+        SendMessage(url, msg2)
+
+        start2()
+
+    end
+
+    
+
+    function start2()
+
+        wait(300)
+
+        start1()
+
+    wait(60)
+
+    start1()
+
+    end
+
+end)
