@@ -46,23 +46,3 @@ local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
 local msg = "```" .. crtime .. "Account Manager:".. string.char(10) .. "+ " .. pl.Name .. " executed script <>" .. string.char(10) .. "+ Current Memory: " .. tostring(totalMemoryUsage) .. " Mb```"
 
 SendMessage(url, msg)
-
-wait(300)
-
-for count = 0, 999999 do
-
-    time = os.date("*t")
-
-    local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
-
-    local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
-
-
-
-    local msg2 = "```" .. crtime .. pl.Name .. " is online <🟢>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. " Mb```"
-
-    SendMessage(url, msg2)
-
-    wait(300)
-
-end
