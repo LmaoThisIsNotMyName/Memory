@@ -1,4 +1,4 @@
-_G.MemoryInput = 2500
+_G.MemoryInput = 3000
 
 spawn(function()
 
@@ -25,53 +25,3 @@ spawn(function()
     end
 
 end)
-function SendMessage(url, message)
-
-    local http = game:GetService("HttpService")
-
-    local headers = {
-
-        ["Content-Type"] = "application/json"
-
-    }
-
-    local data = {
-
-        ["content"] = message
-
-    }
-
-    local body = http:JSONEncode(data)
-
-    local response = request({
-
-        Url = url,
-
-        Method = "POST",
-
-        Headers = headers,
-
-        Body = body
-
-    })
-
-    print(".")
-
-end
-
-local url = "https://discord.com/api/webhooks/1084746350392000574/Fg9MYcAs-NOMgZgWEkPANRUkac1BQ3gnENZ0O1Tj1u2j3RqFLoWqwlyv0UlVNaLtfo3W"
-
-local pl = game.Players.LocalPlayer
-
-local StatsService = game:GetService("Stats")
-
-time = os.date("*t")
-
-local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
-
-local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
-
-local msg = "```" .. crtime .. pl.Name .. " executed script <>" .. string.char(10) .. "Current Memory: " .. tostring(totalMemoryUsage) .. "```"
-
-wait(120)
-SendMessage(url, msg)
