@@ -1,4 +1,3 @@
-
 _G.MemoryInput = 2000
 _G.Scan = true
 
