@@ -1,4 +1,4 @@
-_G.MemoryInput = 3000
+_G.MemoryInput = 2000
 
 spawn(function()
 
@@ -20,7 +20,7 @@ spawn(function()
 
         end
 
-	    wait(30)
+	    wait()
 
     end
 
