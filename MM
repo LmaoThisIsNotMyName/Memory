@@ -1,4 +1,4 @@
-_G.MemoryInput = 3000
+_G.MemoryInput = 3100
 _G.Scan = false
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
