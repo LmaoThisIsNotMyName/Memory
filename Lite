@@ -20,7 +20,7 @@ spawn(function()
 
         end
 
-	 wait()
+	wait()
 
     end
 
