@@ -1,27 +1,23 @@
 _G.MemoryInput = 3000
 
-spawn(function()
+while true do
 
-    while true do
+    local StatsService = game:GetService("Stats")
 
-        local StatsService = game:GetService("Stats")
+    local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
 
-        local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
+    local MemoryUsage = tonumber(totalMemoryUsage)
 
-        local MemoryUsage = tonumber(totalMemoryUsage)
+    if MemoryUsage > _G.MemoryInput then
 
-        if MemoryUsage > _G.MemoryInput then
+        local ts = game:GetService("TeleportService")
 
-            local ts = game:GetService("TeleportService")
+        local p = game:GetService("Players").LocalPlayer
 
-            local p = game:GetService("Players").LocalPlayer
-
-            ts:Teleport(game.PlaceId, p)
-
-        end
-
-        wait(10)
+        ts:Teleport(game.PlaceId, p)
 
     end
 
-end)
+    wait(10)
+
+end
