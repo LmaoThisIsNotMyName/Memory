@@ -19,9 +19,8 @@ spawn(function()
             ts:Teleport(game.PlaceId, p)
 
         end
-
-	wait()
-
+        wait()
+	
     end
 
 end)
