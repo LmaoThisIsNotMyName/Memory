@@ -1,4 +1,4 @@
-_G.MemoryInput = 2500
+_G.MemoryInput = 3000
 
 spawn(function()
 
@@ -19,8 +19,9 @@ spawn(function()
             ts:Teleport(game.PlaceId, p)
 
         end
-        wait()
-	
+
+	    wait(10)
+
     end
 
 end)
