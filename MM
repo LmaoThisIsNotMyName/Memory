@@ -1,6 +1,7 @@
 _G.MemoryInput = 3000
 _G.Scan = true
 game:GetService("RunService"):Set3dRenderingEnabled(false)
+wait(5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
 
 wait(5)
@@ -29,12 +30,12 @@ spawn(function()
 
         end
 
-        wait()
+        wait(5)
 
     end
 
 end)
-
+wait(2)
 function scan_player()
 
     for _,Player in next, Players:GetChildren() do
@@ -94,7 +95,7 @@ function scan_player()
     end
 
 end
-
+wait(2)
 local teleport_table = {
 
     location = Vector3.new(9031.4765625, -14.657792091369629, 2480.787841796875)
