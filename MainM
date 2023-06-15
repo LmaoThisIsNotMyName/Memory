@@ -1,0 +1,149 @@
+_G.MemoryInput = 3000
+
+_G.Scan = true
+
+game:GetService("RunService"):Set3dRenderingEnabled(false)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
+
+wait(5)
+
+local Players = game:GetService('Players')
+
+local LocalPlayer = Players.LocalPlayer
+
+spawn(function()
+
+    while true do
+
+        local StatsService = game:GetService("Stats")
+
+        local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
+
+        local MemoryUsage = tonumber(totalMemoryUsage)
+
+        if MemoryUsage > _G.MemoryInput then
+
+            local ts = game:GetService("TeleportService")
+
+            local p = game:GetService("Players").LocalPlayer
+
+            ts:Teleport(game.PlaceId, p)
+
+        end
+
+        wait()
+
+    end
+
+end)
+
+function scan_player()
+
+    for _,Player in next, Players:GetChildren() do
+
+	    local character = Player.Character	    if character and character.Parent and Player ~= LocalPlayer then
+
+		    local Magnitude = (LocalPlayer.Character.HumanoidRootPart.Position - character.HumanoidRootPart.Position).magnitude
+
+		    if Magnitude < 275 then
+
+		        local Player = game.Players.LocalPlayer    
+
+                local Http = game:GetService("HttpService")
+
+                local TPS = game:GetService("TeleportService")
+
+                local Api = "https://games.roblox.com/v1/games/"
+
+                local _place,_id = game.PlaceId, game.JobId
+
+                local _servers = Api.._place.."/servers/Public?sortOrder=Desc&limit=100"
+
+                function ListServers(cursor)
+
+                    local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+
+                    return Http:JSONDecode(Raw)
+
+                end
+
+                local Next; repeat
+
+                local Servers = ListServers(Next)
+
+                for i,v in next, Servers.data do
+
+                    if v.playing < v.maxPlayers and v.id ~= _id then
+
+                        local s,r = pcall(TPS.TeleportToPlaceInstance,TPS,_place,v.id,Player)
+
+                        if s then break end
+
+                    end
+
+                end
+
+   
+
+                Next = Servers.nextPageCursor
+
+                until not Next
+
+		    end
+
+        end
+
+    end
+
+end
+
+local teleport_table = {
+
+    location = Vector3.new(9031.4765625, -14.657792091369629, 2480.787841796875)
+
+}
+
+local tweens = game:GetService('TweenService')
+
+local tween_info = TweenInfo.new(1, Enum.EasingStyle.Linear)
+
+local plr = game.Players.LocalPlayer
+
+function Bypass_tlp(p)
+
+    if plr.Character and plr.Character:FindFirstChild('HumanoidRootPart') then
+
+        local cf = CFrame.new(p)
+
+        local cr = tweens:Create(plr.Character.HumanoidRootPart, tween_info,  {CFrame = cf})
+
+        cr:play()
+
+        cr.Completed:wait()
+
+    end
+
+end
+
+wait(13)
+
+Bypass_tlp(teleport_table.location)
+
+if _G.Scan == true then
+
+    spawn(function()
+
+        while _G.Scan == true do
+
+            wait(30)
+
+            scan_player()
+
+            wait(60)
+
+        end
+
+    end)
+
+end
