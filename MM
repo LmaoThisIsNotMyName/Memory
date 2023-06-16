@@ -1,6 +1,6 @@
 _G.MemoryInput = 3000
-_G.Scan = true
-game:GetService("RunService"):Set3dRenderingEnabled(false)
+_G.Scan = false
+--game:GetService("RunService"):Set3dRenderingEnabled(false)
 wait(5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
 
