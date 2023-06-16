@@ -1,5 +1,7 @@
 repeat wait() until game:IsLoaded()
-
+_G.mid = true
+_G.main = true
+_G.memory = 3002
 local Character = game.Players.LocalPlayer.Character
 
 while wait() do
