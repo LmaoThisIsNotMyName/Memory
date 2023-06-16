@@ -13,7 +13,7 @@ spawn(function()
 end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
 
-wait(15)
+wait(16)
 
 local teleport_mid = {
 
