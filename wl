@@ -1,1 +1,1 @@
-whitelisted = {"anh0235", "MyName123612", "kiznetanl"}
+wl = {"anh0235", "MyName123612", "kiznetanl"}
