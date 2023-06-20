@@ -150,21 +150,16 @@ _G.mid = _G.mid or false
 _G.memory = _G.memory or 3000
 
 spawn(function()
-
-    while _G.mid == true do
-
-        Bypass_tlp(teleport_mid.location)
-
-        if _G.mid == false then
-
+    while true do
+        if _G.mid == true then
+            Bypass_tlp(teleport_mid.location)
+        elseif _G.mid == false then
             break
-
         end
         wait()
-
     end
-
 end)
+
 spawn(function()
     while _G.main == true do
 
