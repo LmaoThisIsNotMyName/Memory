@@ -149,7 +149,7 @@ _G.mid = _G.mid or false
 _G.memory = _G.memory or 3000
 
 spawn(function()
-
+    _G.mid = _G.mid or true
     spawn(function()
 
         while _G.mid == true do
