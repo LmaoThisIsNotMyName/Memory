@@ -1,0 +1,189 @@
+repeat wait() until game:IsLoaded()
+
+_G.mid = true
+
+_G.main = true
+
+_G.memory = 3005
+
+myname = game.Players.LocalPlayer.Name
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LmaoThisIsNotMyName/Memory/main/wl"))();
+
+function SendMessage(url, message)
+
+    local http = game:GetService("HttpService")
+
+    local headers = {
+
+        ["Content-Type"] = "application/json"
+
+    }
+
+    local data = {
+
+        ["content"] = message
+
+    }
+
+    local body = http:JSONEncode(data)
+
+    local response = request({
+
+        Url = url,
+
+        Method = "POST",
+
+        Headers = headers,
+
+        Body = body
+
+    })
+
+end
+
+local url = "https://discord.com/api/webhooks/1084746350392000574/Fg9MYcAs-NOMgZgWEkPANRUkac1BQ3gnENZ0O1Tj1u2j3RqFLoWqwlyv0UlVNaLtfo3W"
+
+local pl = game.Players.LocalPlayer
+
+time = os.date("*t")
+
+local crtime = "[".. tostring(time.hour -1 ) .. ":" .. tostring(time.min) .. ":" .. tostring(time.sec) .. "] "
+
+local msg = "```" .. crtime .. " Account Manager ".. string.char(10) .. myname .. " failed to execute script <Not whitelisted>" .. "```"
+
+turn = 0
+
+repeat
+
+    turn = turn + 1
+
+    wait()
+
+until myname == wl[turn] or turn > 12
+
+if myname == wl[turn] then
+
+    print("Tanh's script status: verified 🟢")
+
+else
+
+    SendMessage(url, msg)
+
+    wait(1)
+
+    game.Players.LocalPlayer:Kick("may chua duoc whitelist ❌")
+
+end
+
+local Character = game.Players.LocalPlayer.Character
+
+while wait() do
+
+    Character.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame * CFrame.Angles(0, math.rad(5), 0)
+
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
+
+wait(15)
+
+local teleport_mid = {
+
+    location = Vector3.new(9021.697265625, -12.281599998474121, 2505.49951171875)
+
+}
+
+local tweens = game:GetService('TweenService')
+
+local tween_info = TweenInfo.new(1, Enum.EasingStyle.Linear)
+
+local plr = game.Players.LocalPlayer
+
+function Bypass_tlp(p)
+
+    if plr.Character and plr.Character:FindFirstChild('HumanoidRootPart') then
+
+        local cf = CFrame.new(p)
+
+        local cr = tweens:Create(plr.Character.HumanoidRootPart, tween_info,  {CFrame = cf})
+
+        cr:play()
+
+        cr.Completed:wait()
+
+    end
+
+end
+
+function airwalk()
+
+    local air = Instance.new("Part", workspace)
+
+    air.Size = Vector3.new(7, 2, 3)
+
+    air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+
+    air.Transparency = 1
+
+    air.Anchored = true
+
+    air.Name = "Airwalk"
+
+    for i = 1, math.huge do
+
+        air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+
+        wait()
+
+    end
+
+end
+
+airwalk()
+
+_G.mid = _G.mid or false
+
+_G.memory = _G.memory or 3000
+
+spawn(function()
+
+    spawn(function()
+
+        while _G.mid == true then
+
+            Bypass_tlp(teleport_mid.location)
+
+            if _G.mid == false then
+
+                break
+
+            end
+
+        end
+
+    end)
+
+    while _G.main == true do
+
+        local StatsService = game:GetService("Stats")
+
+        local totalMemoryUsage = StatsService:GetTotalMemoryUsageMb()
+
+        local MemoryUsage = tonumber(totalMemoryUsage)
+
+        if MemoryUsage > _G.memory then
+
+            local ts = game:GetService("TeleportService")
+
+            local p = game:GetService("Players").LocalPlayer
+
+            ts:Teleport(game.PlaceId, p)
+
+        end
+
+        wait()
+
+    end
+
+end)
