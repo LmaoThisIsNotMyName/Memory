@@ -77,7 +77,7 @@ else
 end
 
 local Character = game.Players.LocalPlayer.Character
-
+--[[
 spawn(function()
     while wait() do
 
@@ -85,6 +85,7 @@ spawn(function()
 
     end
 end)
+]]--
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-WD/main/Mainstring.lua"))()
 
 wait(18)
@@ -151,7 +152,7 @@ spawn(function()
 
     spawn(function()
 
-        while _G.mid == true then
+        while _G.mid == true do
 
             Bypass_tlp(teleport_mid.location)
 
