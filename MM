@@ -182,4 +182,32 @@ spawn(function()
     end
 
 end)
+
+local CharParts = {}
+_G.NoClip = true
+game:GetService("RunService").Stepped:connect(function()
+    if _G.NoClip then
+        for i = 1, #CharParts do
+            CharParts[i].CanCollide = false
+        end
+    end
+end)
+
+function SetupCharCollide(Char)
+    CharParts = {}
+    Char:WaitForChild("Head")
+    for i, v in pairs(Char:GetChildren()) do
+        if v:IsA("BasePart") then
+            table.insert(CharParts, v)
+        end
+    end
+end
+
+if game.Players.LocalPlayer.Character then
+    SetupCharCollide(game.Players.LocalPlayer.Character)
+end
+game.Players.LocalPlayer.CharacterAdded:connect(function(Ch)
+    SetupCharCollide(Ch)
+end)
+
 airwalk()
