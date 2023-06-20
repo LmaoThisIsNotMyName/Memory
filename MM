@@ -143,8 +143,6 @@ function airwalk()
 
 end
 
-airwalk()
-
 _G.mid = _G.mid or false
 
 _G.memory = _G.memory or 3000
@@ -184,3 +182,4 @@ spawn(function()
     end
 
 end)
+airwalk()
