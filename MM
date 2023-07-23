@@ -188,7 +188,7 @@ function main()
 
             end
 
-            Bypass_tlp(teleport_mid.location)
+            --Bypass_tlp(teleport_mid.location)
 
             wait(1)
 
