@@ -8,7 +8,7 @@ repeat wait() until game.Players.LocalPlayer.Character.HumanoidRootPart
 
 _G.main = true
 
-_G.memory = 1500
+_G.memory = 1300
 
 
 
