@@ -12,12 +12,6 @@ spawn(function()
 
             local ts = game:GetService("TeleportService")
 
-
-
-
-
-
-
             local p = game:GetService("Players").LocalPlayer
 
 
@@ -40,7 +34,7 @@ end)
 
 _G.main = true
 
-_G.memory = 3000
+_G.memory = 3005
 
 
 
