@@ -2,13 +2,45 @@ repeat wait() until game.Players.LocalPlayer.Character.HumanoidRootPart
 
 
 
+spawn(function()
 
+    local time = 0
+
+    while true do
+
+        if time == 900 then
+
+            local ts = game:GetService("TeleportService")
+
+
+
+
+
+
+
+            local p = game:GetService("Players").LocalPlayer
+
+
+
+            ts:Teleport(game.PlaceId, p)
+
+            break
+
+        end
+
+        time = time + 1
+
+        wait(1)
+
+    end
+
+end)
 
 
 
 _G.main = true
 
-_G.memory = 1300
+_G.memory = 3000
 
 
 
@@ -188,7 +220,7 @@ function main()
 
             end
 
-            --Bypass_tlp(teleport_mid.location)
+            Bypass_tlp(teleport_mid.location)
 
             wait(1)
 
