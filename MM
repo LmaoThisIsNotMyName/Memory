@@ -8,7 +8,7 @@ spawn(function()
 
     while true do
 
-        if time == 180 then
+        if time == 240 then
 
             local ts = game:GetService("TeleportService")
 
