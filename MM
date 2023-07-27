@@ -1,6 +1,6 @@
 repeat wait() until game.Players.LocalPlayer.Character.HumanoidRootPart
 
-_G.tele = true
+_G.tele = false
 
 spawn(function()
 
